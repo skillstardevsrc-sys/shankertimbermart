@@ -1,0 +1,105 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        walnut: {
+          DEFAULT: "#2B1D15",
+          50: "#F7F4F2",
+          100: "#ECE4E0",
+          200: "#D8C7C0",
+          300: "#BEA59A",
+          400: "#9A7A6D",
+          500: "#7A594C",
+          600: "#5A3F33",
+          700: "#442E24",
+          800: "#2B1D15",
+          900: "#1E130D",
+          950: "#120B07",
+        },
+        timber: {
+          DEFAULT: "#C88A3E",
+          50: "#FCF8F2",
+          100: "#F7EEDF",
+          200: "#EEDBBF",
+          300: "#E2C398",
+          400: "#D6AB6E",
+          500: "#C88A3E",
+          600: "#B4742B",
+          700: "#925A1E",
+          800: "#734418",
+          900: "#553112",
+        },
+        sand: {
+          DEFAULT: "#DDBA88",
+          50: "#FAF7F2",
+          100: "#F4EDE1",
+          200: "#E9DAC3",
+          300: "#DEC5A3",
+          400: "#DDBA88",
+          500: "#CCA36B",
+          600: "#B68B50",
+          700: "#956F3B",
+          800: "#74542B",
+          900: "#523B1E",
+        },
+        ivory: {
+          DEFAULT: "#F9F6F0",
+          50: "#FDFCF9",
+          100: "#FAF7F2",
+          200: "#F9F6F0",
+          300: "#F0EADB",
+          400: "#E5DBC5",
+          500: "#D8C9AC",
+        },
+        olive: {
+          DEFAULT: "#5C6650",
+          50: "#F4F6F2",
+          100: "#E6EAE2",
+          200: "#CCD5C5",
+          300: "#B0BFA5",
+          400: "#8B9E7C",
+          500: "#5C6650",
+          600: "#4B5441",
+          700: "#3B4233",
+          800: "#2B3025",
+          900: "#1A1D16",
+        },
+        charcoal: {
+          DEFAULT: "#241D1A",
+          light: "#3E332E",
+          muted: "#6A5C55",
+        },
+      },
+      fontFamily: {
+        serif: ["'Cormorant Garamond'", "Georgia", "serif"],
+        sans: ["'DM Sans'", "system-ui", "sans-serif"],
+      },
+      maxWidth: {
+        site: "1280px",
+      },
+      borderRadius: {
+        button: "12px",
+        card: "20px",
+        container: "28px",
+        pill: "9999px",
+        form: "12px",
+      },
+      boxShadow: {
+        luxury: "0 14px 34px -10px rgba(43, 29, 21, 0.10), 0 6px 12px -2px rgba(43, 29, 21, 0.05)",
+        card: "0 6px 24px -4px rgba(43, 29, 21, 0.07)",
+        hover: "0 20px 40px -8px rgba(43, 29, 21, 0.16)",
+        glow: "0 0 25px rgba(200, 138, 62, 0.25)",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
