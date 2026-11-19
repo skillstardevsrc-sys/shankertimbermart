@@ -48,6 +48,12 @@ export default async function AdminDashboardPage() {
             </div>
             <div className="flex items-center gap-3">
               <Link
+                href="/admin/configurator"
+                className="px-4 py-2 bg-timber hover:bg-timber-600 text-ivory text-xs font-semibold uppercase tracking-wider rounded-button transition-colors flex items-center gap-1.5"
+              >
+                <span>Configurator CMS</span>
+              </Link>
+              <Link
                 href="/admin/enquiries"
                 className="px-4 py-2 bg-walnut hover:bg-walnut-700 text-ivory text-xs font-semibold uppercase tracking-wider rounded-button transition-colors"
               >

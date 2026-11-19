@@ -1,99 +1,129 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Compass, Sparkles } from "lucide-react";
-import { HeroProductCustomizer } from "./HeroProductCustomizer";
+import { ArrowRight, Play, TreePine, Layers, Compass, Handshake } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center bg-walnut text-ivory overflow-hidden py-10 lg:py-14">
-      {/* Cinematic Architectural Background Image with Clean Non-Blocking Gradient */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+    <section className="relative min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-between bg-walnut text-ivory overflow-hidden">
+      {/* Photorealistic Architectural Hero Background Image */}
+      <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&auto=format&fit=crop&q=85"
-          alt="Shankar Timber Mart Architectural Showcase"
+          src="/images/hero-bg.jpg"
+          alt="Shankar Timber Mart Architectural Interior Living Room and Luxury Wood Door"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-35 scale-105"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-walnut/95 via-walnut/85 to-walnut/75 pointer-events-none" />
+        {/* Directional Vignette Gradient to ensure perfect text readability while letting the door & garden shine */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent lg:w-[65%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
       </div>
 
-      <div className="relative z-10 max-w-site mx-auto px-4 sm:px-6 w-full">
-        {/* 2-Column Balanced Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Headline, Copy & Trust Highlights (6 Cols) */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Tagline Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-400/15 border border-sand-400/30 text-sand-200 text-xs tracking-[0.2em] uppercase font-semibold backdrop-blur-md shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-timber" />
-              <span>Crafting Spaces. Defining Living.</span>
+      {/* Main Content Area */}
+      <div className="relative z-10 max-w-site mx-auto px-6 sm:px-8 w-full pt-16 sm:pt-24 lg:pt-32 pb-8 flex-1 flex flex-col justify-center">
+        <div className="max-w-2xl space-y-5">
+          {/* Brand Overline Tag with Horizontal Rule */}
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] font-medium text-ivory/80">
+              SHANKAR TIMBER MART
+            </span>
+            <span className="w-12 sm:w-16 h-[1px] bg-ivory/40" />
+          </div>
+
+          {/* Main Hero Headline */}
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-[68px] font-medium tracking-tight text-ivory leading-[1.08]">
+            The Beauty of <span className="text-[#C59B63] italic font-normal">Wood.</span> <br />
+            The Art of Living.
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base lg:text-lg text-ivory/85 leading-relaxed max-w-xl font-normal pt-1">
+            Discover premium timber, plywood, doors, windows and interior solutions for beautiful spaces.
+          </p>
+
+          {/* Action CTAs */}
+          <div className="pt-3 flex flex-wrap items-center gap-4">
+            <Link
+              href="/configurator"
+              className="inline-flex items-center gap-2 bg-[#B87A3D] hover:bg-[#a66a30] text-ivory text-xs sm:text-sm font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              <span>Explore Products</span>
+              <ArrowRight className="w-4 h-4 text-ivory" />
+            </Link>
+
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2.5 border border-sand-300/60 hover:border-sand-200 hover:bg-white/10 text-ivory text-xs sm:text-sm font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg backdrop-blur-md transition-all duration-300"
+            >
+              <Play className="w-3.5 h-3.5 fill-[#C59B63] text-[#C59B63]" />
+              <span>View Our Projects</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Floating Highlights Bar (4 Columns) */}
+      <div className="relative z-10 w-full border-t border-white/15 bg-black/40 backdrop-blur-md py-5 sm:py-6 px-6 sm:px-8">
+        <div className="max-w-site mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+          {/* Feature 01: Wide Product Range */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-[#C59B63]/20 border border-[#C59B63]/40 flex items-center justify-center shrink-0">
+              <TreePine className="w-5 h-5 text-[#C59B63]" />
             </div>
-
-            {/* Hero Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ivory leading-[1.1]">
-              The Beauty of Wood. <br />
-              <span className="italic font-normal text-sand-300">The Art of Living.</span>
-            </h1>
-
-            {/* Supporting Copy */}
-            <p className="text-sm sm:text-base text-ivory/80 leading-relaxed max-w-xl font-normal">
-              Direct importers of genuine Burma & African Teak, exotic Padauk, and architectural timber. Choose your wood, design, and dimensions right on the studio card to configure and order your custom piece instantly.
-            </p>
-
-            {/* Action CTAs */}
-            <div className="pt-1 flex flex-wrap items-center gap-3">
-              <Link
-                href="/products"
-                className="bg-timber hover:bg-timber-600 text-ivory text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-full shadow-hover flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02]"
-              >
-                <span>Explore Products</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                href="/projects"
-                className="border border-sand-300/40 hover:border-sand-300 hover:bg-sand-300/10 text-ivory text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-full transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
-              >
-                <Compass className="w-4 h-4 text-sand-300" />
-                <span>View Our Projects</span>
-              </Link>
-            </div>
-
-            {/* Trust Highlights Strip */}
-            <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-3 text-xs text-ivory/80">
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <span className="block font-serif text-lg sm:text-xl text-sand-200 font-medium mb-0.5">
-                  100% Genuine
-                </span>
-                <span className="text-[10px] text-ivory/70 leading-snug block">
-                  Direct Burma & African Teak
-                </span>
-              </div>
-
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <span className="block font-serif text-lg sm:text-xl text-sand-200 font-medium mb-0.5">
-                  BWP 710
-                </span>
-                <span className="text-[10px] text-ivory/70 leading-snug block">
-                  Certified Marine Waterproof
-                </span>
-              </div>
-
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <span className="block font-serif text-lg sm:text-xl text-sand-200 font-medium mb-0.5">
-                  Turnkey
-                </span>
-                <span className="text-[10px] text-ivory/70 leading-snug block">
-                  Hand Carvings & Factory Finish
-                </span>
-              </div>
+            <div>
+              <h4 className="text-sm font-semibold text-ivory leading-tight">
+                Wide Product Range
+              </h4>
+              <p className="text-xs text-ivory/70 mt-0.5">
+                Timber • Plywood • Doors • Windows
+              </p>
             </div>
           </div>
 
-          {/* Right Column: Clean Step-by-Step Bespoke Studio Card Hook (6 Cols) */}
-          <div className="lg:col-span-6 w-full max-w-lg lg:max-w-none mx-auto">
-            <HeroProductCustomizer />
+          {/* Feature 02: Quality Materials */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-[#C59B63]/20 border border-[#C59B63]/40 flex items-center justify-center shrink-0">
+              <Layers className="w-5 h-5 text-[#C59B63]" />
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-ivory leading-tight">
+                Quality Materials
+              </h4>
+              <p className="text-xs text-ivory/70 mt-0.5">
+                Trusted &amp; Reliable
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 03: Interior Solutions */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-[#C59B63]/20 border border-[#C59B63]/40 flex items-center justify-center shrink-0">
+              <Compass className="w-5 h-5 text-[#C59B63]" />
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-ivory leading-tight">
+                Interior Solutions
+              </h4>
+              <p className="text-xs text-ivory/70 mt-0.5">
+                Modular &amp; Turnkey
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 04: End-to-End Support */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-[#C59B63]/20 border border-[#C59B63]/40 flex items-center justify-center shrink-0">
+              <Handshake className="w-5 h-5 text-[#C59B63]" />
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-ivory leading-tight">
+                End-to-End Support
+              </h4>
+              <p className="text-xs text-ivory/70 mt-0.5">
+                Guidance to Installation
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -12,10 +12,12 @@ import {
   Settings,
   LogOut,
   ExternalLink,
+  Sliders,
 } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Overview", href: "/admin", icon: LayoutDashboard },
+  { label: "Product Configurator", href: "/admin/configurator", icon: Sliders },
   { label: "Leads & Enquiries", href: "/admin/enquiries", icon: Users },
   { label: "Product Catalogue", href: "/admin/products", icon: Package },
   { label: "Project Portfolio", href: "/admin/projects", icon: FolderGit2 },

@@ -64,6 +64,14 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
           {/* Navigation Links */}
           <nav className="p-6 space-y-4">
             <Link
+              href="/configurator"
+              onClick={onClose}
+              className="block p-3 rounded-xl bg-timber text-ivory text-sm font-semibold uppercase tracking-wider text-center shadow-sm"
+            >
+              ✦ Customise Your Product
+            </Link>
+
+            <Link
               href="/"
               onClick={onClose}
               className="block text-lg font-serif text-walnut hover:text-timber font-medium transition-colors"

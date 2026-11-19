@@ -54,19 +54,23 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
         {/* Mega Menu Footer Banner */}
         <div className="mt-8 pt-6 border-t border-sand-200 flex flex-wrap items-center justify-between text-xs text-charcoal/80 bg-ivory-100 p-4 rounded-card">
           <div className="flex items-center space-x-6">
-            <span className="font-medium text-walnut">Specialized Services:</span>
-            <span>Precision Timber Planing</span>
-            <span className="text-sand-400">•</span>
-            <span>Custom Sizing & Frame Rebating</span>
+            <span className="font-semibold text-walnut">Interactive Showroom:</span>
+            <Link
+              href="/configurator"
+              onClick={onClose}
+              className="text-timber hover:underline font-semibold"
+            >
+              Customise Doors, WPC, Windows & Timber
+            </Link>
             <span className="text-sand-400">•</span>
             <span>Turnkey Modular Fit-Outs</span>
           </div>
           <Link
-            href="/quote"
+            href="/configurator"
             onClick={onClose}
             className="text-timber hover:text-walnut font-semibold inline-flex items-center gap-1.5 transition-colors"
           >
-            <span>Request Material Specification & Sample</span>
+            <span>Launch Configurator</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

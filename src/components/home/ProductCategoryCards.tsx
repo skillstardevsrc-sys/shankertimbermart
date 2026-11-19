@@ -10,42 +10,42 @@ const CATEGORIES = [
     subtitle: "Hardwood & Softwood",
     description: "Burma Teak, African Teak, Mahogany, Padauk, Malaysian Sal, White Ash, and Oak lumber.",
     image: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=800&auto=format&fit=crop&q=80",
-    href: "/products/timber",
+    href: "/configurator?category=timber",
   },
   {
     title: "Plywood & MDF",
     subtitle: "Engineered Panels",
     description: "IS:710 Marine BWP plywood, Russian Birch, PVC boards, and pre-laminated high-density MDF.",
     image: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&auto=format&fit=crop&q=80",
-    href: "/products/plywood-mdf",
+    href: "/configurator?category=plywood-mdf",
   },
   {
     title: "Designer Doors",
     subtitle: "Veneer, Lam & Membrane",
     description: "Natural hand-selected veneer doors, laminated flush doors, and solid internal passage doors.",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80",
-    href: "/products/doors-wpc",
+    href: "/configurator?category=doors",
   },
   {
     title: "Windows & Fenesta",
     subtitle: "uPVC & Slim Aluminium",
     description: "Engineered multi-chamber acoustic uPVC and architectural slim-sightline aluminium windows.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
-    href: "/products/windows-fenesta",
+    href: "/configurator?category=windows",
   },
   {
     title: "Solid WPC Solutions",
     subtitle: "100% Waterproof & Termite-Proof",
     description: "Composite doors and heavy jamb frames impervious to water for bathrooms and wet utilities.",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop&q=80",
-    href: "/products/doors-wpc?sub=wpc",
+    href: "/configurator?category=wpc",
   },
   {
     title: "Modular Interiors",
     subtitle: "Kitchens & Wardrobes",
     description: "Turnkey modular kitchens with marine plywood carcasses, walk-in wardrobes, and TV feature walls.",
     image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&auto=format&fit=crop&q=80",
-    href: "/products/modular-interiors",
+    href: "/configurator?category=modular-interiors",
   },
 ];
 
@@ -100,7 +100,7 @@ export function ProductCategoryCards() {
 
                 <div className="pt-3 border-t border-sand-100 flex items-center justify-between text-xs font-semibold text-walnut group-hover:text-timber transition-colors">
                   <span className="px-3.5 py-1.5 rounded-full bg-ivory-100 group-hover:bg-sand-100 transition-colors">
-                    Explore Collection
+                    Customise & Quote
                   </span>
                   <div className="w-8 h-8 rounded-full bg-sand-100 group-hover:bg-timber group-hover:text-ivory transition-colors flex items-center justify-center text-timber">
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

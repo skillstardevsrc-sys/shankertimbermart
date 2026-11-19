@@ -1618,6 +1618,23 @@
   ],
   "enquiries": [
     {
+      "fullName": "Ar. Arvind Swamy",
+      "phone": "9443042244",
+      "email": "arvind@swamyarchitects.com",
+      "customerType": "Architect",
+      "productCategory": "Doors, Doors, Windows & Fenestration",
+      "projectLocation": "Coimbatore Race Course",
+      "estimatedQuantity": "9 Total Units (3 configured items)",
+      "requirementDescription": "ENQUIRY REFERENCE: STM-ENQ-2026-6552\nCUSTOMER TYPE: Architect\nPROJECT LOCATION: Coimbatore Race Course\nSITE CONSULTATION REQUESTED: YES (Measurement Survey Needed)\n\n--- CONFIGURED ITEMS SCHEDULE (3 items) ---\n[Item 1] Veneer Door (Doors)\n- Material: Natural Teak Veneer\n- Design: Vertical Grain Linear Inlay (STM-DR-VN01)\n- Dimensions: H:2100 W:900 mm\n- Quantity: 2 pieces\n\n\n\n\n\n\n[Item 2] Flush Door (Doors)\n- Material: Calibrated Gurjan Hardwood Face\n- Design: Standard\n- Dimensions: H:2100 W:800 mm\n- Quantity: 4 pieces\n\n\n\n\n\n\n[Item 3] uPVC Slider Window (Windows & Fenestration)\n- Material: uPVC Lead-Free Multi-Chamber\n- Design: Standard\n- Dimensions: H:1500 W:1800 mm\n- Quantity: 3 sets\n\n\n\n\n\n\n--- ADDITIONAL CUSTOMER MESSAGE ---\nRequire quotation for villa project",
+      "consent": true,
+      "source": "Website Configurator (STM-ENQ-2026-6552)",
+      "id": "enq-1795073486834-bnpp",
+      "status": "New",
+      "internalNotes": [],
+      "createdAt": "2026-11-19T07:31:26.835Z",
+      "updatedAt": "2026-11-19T07:31:26.835Z"
+    },
+    {
       "id": "enq-001",
       "fullName": "Ar. Rajesh Sundaram",
       "phone": "+91 98421 11223",
