@@ -1,202 +1,199 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { WoodPatternBackground } from "@/components/ui/WoodPatternBackground";
+import Link from "next/link";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
-interface TimberItem {
-  name: string;
-  type: "hardwood" | "softwood";
-  origin: string;
-  description: string;
-  idealFor: string;
-  image: string;
-  slug: string;
-}
+const MATERIAL_TABS = ["All", "Timber", "Plywood & MDF", "Doors"];
 
-const TIMBER_ITEMS: TimberItem[] = [
+const MATERIALS = [
   {
-    name: "Burma Teak Wood",
-    type: "hardwood",
-    origin: "Authentic Myanmar Timber",
-    description: "Golden honey hues, high natural oil content, and tight ring grains. Impervious to moisture and decay.",
-    idealFor: "Main entrance doors, staircases, heirloom joinery",
-    image: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=800&auto=format&fit=crop&q=80",
-    slug: "burma-teak-wood",
+    name: "Teak Wood",
+    category: "Timber",
+    subtitle: "Burma & African Teak",
+    image: "/images/timber/teak-wood.jpg",
+    href: "/products/timber",
   },
   {
-    name: "Padauk Wood (Red Gold)",
-    type: "hardwood",
-    origin: "Tropical Exotic Hardwood",
-    description: "Striking natural coral-red hue maturing into a warm deep burgundy with exceptional dimensional stability.",
-    idealFor: "Statement entrance doors, fluted panels, luxury desks",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&auto=format&fit=crop&q=80",
-    slug: "padauk-wood",
+    name: "Mahogany",
+    category: "Timber",
+    subtitle: "Deep Auburn Luster",
+    image: "/images/timber/mahogany-wood.jpg",
+    href: "/products/timber",
   },
   {
-    name: "Malaysian White Sal",
-    type: "hardwood",
-    origin: "Imported Malaysian Timber",
-    description: "Extremely heavy and dense structural timber. Naturally resistant to termites, borer beetles, and fungal rot.",
-    idealFor: "Door and window frames (chowkhats), structural lintels",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80",
-    slug: "malaysian-white-sal",
+    name: "Oak Wood",
+    category: "Timber",
+    subtitle: "European White Oak",
+    image: "/images/timber/oak-wood.jpg",
+    href: "/products/timber",
   },
   {
-    name: "American White Ash",
-    type: "softwood",
-    origin: "North American Hardwood/Softwood",
-    description: "Bright blonde tones with dramatic bold cathedral grain patterns. The definitive timber of Japandi and Nordic designs.",
-    idealFor: "Minimalist cabinetry, feature wall slats, chairs",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80",
-    slug: "white-ash-wood",
-  },
-  {
-    name: "Architectural White Oak",
-    type: "softwood",
-    origin: "European / American Oak",
-    description: "Subtle biscuit-tan grain with tight medullary rays and natural water resistance.",
-    idealFor: "Modern kitchen facades, bespoke dining tables, flooring",
-    image: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=800&auto=format&fit=crop&q=80",
-    slug: "white-oak-wood",
-  },
-  {
-    name: "African Teak (Iroko)",
-    type: "hardwood",
-    origin: "West African Timber",
-    description: "High-density golden bronze timber offering superior outdoor and weather tolerance.",
-    idealFor: "Exterior pergola beams, heavy door casings, decks",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80",
-    slug: "african-teak-wood",
+    name: "Pine Wood",
+    category: "Timber",
+    subtitle: "Pale Golden Softwood",
+    image: "/images/timber/pine-wood.jpg",
+    href: "/products/timber",
   },
 ];
 
 export function FeaturedTimberCollection() {
-  const [activeTab, setActiveTab] = useState<"all" | "hardwood" | "softwood">("all");
+  const [activeTab, setActiveTab] = useState("All");
+  const [hoveredMaterial, setHoveredMaterial] = useState<typeof MATERIALS[0] | null>(null);
 
-  const filtered =
-    activeTab === "all"
-      ? TIMBER_ITEMS
-      : TIMBER_ITEMS.filter((item) => item.type === activeTab);
+  const filteredMaterials =
+    activeTab === "All"
+      ? MATERIALS
+      : MATERIALS.filter((m) => m.category === activeTab);
+
+  const activeDisplayMaterial = hoveredMaterial || MATERIALS[0];
 
   return (
-    <section className="py-20 lg:py-28 bg-ivory relative overflow-hidden">
-      {/* Unified Aesthetic Wood Growth Rings Background */}
-      <WoodPatternBackground opacity="opacity-[0.07]" />
-
-      <div className="relative z-10 max-w-site mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <SectionHeading
-            tagline="Hardwood & Softwood Timber"
-            title="Nature's Finest Materials."
-            subtitle="Hand-inspected natural timber logs, planed scantlings, and frame sections seasoned for Coimbatore's climate."
-            className="mb-0"
-          />
-
-          {/* Smooth Curved Pill Filter Tabs */}
-          <div className="inline-flex p-1.5 bg-sand-200/70 rounded-full border border-sand-300 self-start md:self-end shadow-sm">
-            <button
-              onClick={() => setActiveTab("all")}
-              className={`px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300 ${
-                activeTab === "all"
-                  ? "bg-walnut text-ivory shadow-md"
-                  : "text-charcoal/70 hover:text-walnut"
-              }`}
-            >
-              All Woods
-            </button>
-            <button
-              onClick={() => setActiveTab("hardwood")}
-              className={`px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300 ${
-                activeTab === "hardwood"
-                  ? "bg-walnut text-ivory shadow-md"
-                  : "text-charcoal/70 hover:text-walnut"
-              }`}
-            >
-              Hardwood (Teak, Sal, Padauk)
-            </button>
-            <button
-              onClick={() => setActiveTab("softwood")}
-              className={`px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300 ${
-                activeTab === "softwood"
-                  ? "bg-walnut text-ivory shadow-md"
-                  : "text-charcoal/70 hover:text-walnut"
-              }`}
-            >
-              Softwood / Ash & Oak
-            </button>
+    <section className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
+      <div className="relative z-10 max-w-site mx-auto px-6 sm:px-8 lg:px-10">
+        {/* Header & Filter Tabs */}
+        <ScrollReveal 
+          variant="up"
+          duration={0.7}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12"
+        >
+          <div>
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.24em] text-[#6E5053] uppercase block mb-1.5">
+              FEATURED MATERIALS
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3F2E2F]">
+              Nature's Finest Materials.
+            </h2>
+            <p className="text-sm sm:text-base text-[#3F2E2F]/75 mt-2 max-w-xl font-normal">
+              A curated selection of durable, versatile and aesthetically rich materials for every design need.
+            </p>
           </div>
-        </div>
 
-        {/* Timber Grid with Curved Architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((wood) => (
-            <div
-              key={wood.name}
-              className="bg-white rounded-3xl p-3 sm:p-4 shadow-card border border-sand-200/90 flex flex-col group hover:shadow-hover hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-sand-200">
-                <Image
-                  src={wood.image}
-                  alt={wood.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-walnut/90 backdrop-blur-md text-ivory text-[10px] font-semibold uppercase px-3 py-1 rounded-full shadow-sm">
-                  {wood.type}
-                </div>
-              </div>
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {MATERIAL_TABS.map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+                className={`text-xs font-medium px-4 py-2 rounded-full transition-all duration-200 ${
+                  activeTab === tab
+                    ? "bg-[#3F2E2F] text-[#FAF1E8] shadow-sm"
+                    : "glass-pill text-[#3F2E2F]/80 hover:bg-white hover:text-[#3F2E2F]"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
 
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <span className="text-[11px] text-timber font-medium tracking-wide block">
-                    {wood.origin}
-                  </span>
-                  <h3 className="font-serif text-2xl font-medium text-walnut">
-                    {wood.name}
-                  </h3>
-                  <p className="text-xs text-charcoal/70 leading-relaxed">
-                    {wood.description}
-                  </p>
-                  <div className="pt-2 text-xs text-charcoal/60">
-                    <span className="font-semibold text-walnut">Ideal For: </span>
-                    <span>{wood.idealFor}</span>
-                  </div>
+        {/* Asymmetrical Composition: Large Timber Highlight + Horizontal Swatches */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+          
+          {/* Left: Large Architectural Curved Timber Close-up */}
+          <ScrollReveal 
+            variant="left"
+            duration={0.8}
+            className="lg:col-span-4"
+          >
+            <div className="relative aspect-square rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/80 shadow-[0_16px_40px_rgba(63,46,47,0.08)] bg-[#EAD7CF]/30 group">
+              <Image
+                src={activeDisplayMaterial.image}
+                alt={`${activeDisplayMaterial.name} texture closeup`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition-all duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-5 left-5 right-5 glass-pill px-4 py-2.5 flex items-center justify-between text-[#3F2E2F]">
+                <div>
+                  <span className="text-xs font-semibold block leading-tight">{activeDisplayMaterial.name}</span>
+                  <span className="text-[10px] text-[#6E5053]">{activeDisplayMaterial.subtitle || "Kiln-Dried & Seasoned"}</span>
                 </div>
-
-                <div className="pt-4 border-t border-sand-100 flex items-center justify-between">
-                  <Link
-                    href={`/products/${wood.slug}`}
-                    className="text-xs font-semibold text-walnut hover:text-timber inline-flex items-center gap-1 transition-colors"
-                  >
-                    <span>View Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-timber" />
-                  </Link>
-                  <Link
-                    href={`/quote?product=${encodeURIComponent(wood.name)}`}
-                    className="text-[11px] font-semibold bg-sand-100 hover:bg-walnut hover:text-ivory text-walnut px-4 py-1.5 rounded-full transition-all duration-300 shadow-sm"
-                  >
-                    Get Rate
-                  </Link>
-                </div>
+                <Link
+                  href={activeDisplayMaterial.href}
+                  className="w-6 h-6 rounded-full bg-[#3F2E2F] hover:bg-[#6E5053] text-[#FAF1E8] flex items-center justify-center text-xs transition-colors"
+                >
+                  →
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
 
-        {/* View all timber CTA button with smooth curves */}
-        <div className="mt-14 text-center">
-          <Link
-            href="/products/timber"
-            className="inline-flex items-center gap-2 border border-sand-300 bg-white hover:bg-sand-50 text-walnut text-xs font-semibold uppercase tracking-wider px-8 py-4 rounded-full transition-all shadow-sm hover:shadow-md"
-          >
-            <span>Explore Complete Timber Catalogue</span>
-            <ArrowRight className="w-4 h-4 text-timber" />
-          </Link>
+          {/* Right: Horizontal Carousel Swatch Cards with Left/Right Arrows */}
+          <div className="lg:col-span-8 relative">
+            <div className="relative flex items-center">
+              {/* Prev Arrow */}
+              <button
+                type="button"
+                aria-label="Previous swatches"
+                className="hidden xl:flex absolute -left-4 z-20 w-8 h-8 rounded-full glass-card items-center justify-center text-[#3F2E2F] hover:bg-white shadow-sm transition-all"
+              >
+                <ChevronLeft className="w-3.5 h-3.5" />
+              </button>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 w-full">
+                {filteredMaterials.map((mat, idx) => {
+                  const isSelected = activeDisplayMaterial.name === mat.name;
+                  return (
+                    <ScrollReveal
+                      key={mat.name}
+                      variant="up"
+                      delay={idx * 0.1}
+                      duration={0.6}
+                      className="group flex flex-col items-center space-y-2.5 cursor-pointer"
+                      style={{}}
+                    >
+                      <div
+                        onMouseEnter={() => setHoveredMaterial(mat)}
+                        className="w-full flex flex-col items-center space-y-2.5"
+                      >
+                        <Link
+                          href={mat.href}
+                          className={`relative w-full aspect-[4/3] rounded-[20px] overflow-hidden border transition-all duration-300 shadow-[0_8px_24px_rgba(63,46,47,0.06)] bg-[#EAD7CF]/20 ${
+                            isSelected
+                              ? "border-white ring-2 ring-[#6E5053]/40 shadow-lg scale-[1.02]"
+                              : "border-white/80 hover:border-white"
+                          }`}
+                        >
+                          <Image
+                            src={mat.image}
+                            alt={mat.name}
+                            fill
+                            sizes="(max-width: 640px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </Link>
+                        <Link
+                          href={mat.href}
+                          className={`glass-pill px-3.5 py-1.5 w-full text-center transition-all shadow-sm ${
+                            isSelected ? "bg-white text-[#3F2E2F]" : "group-hover:bg-white"
+                          }`}
+                        >
+                          <span className="text-xs font-semibold text-[#3F2E2F] truncate block">
+                            {mat.name}
+                          </span>
+                        </Link>
+                      </div>
+                    </ScrollReveal>
+                  );
+                })}
+              </div>
+
+              {/* Next Arrow */}
+              <button
+                type="button"
+                aria-label="Next swatches"
+                className="hidden xl:flex absolute -right-4 z-20 w-8 h-8 rounded-full glass-card items-center justify-center text-[#3F2E2F] hover:bg-white shadow-sm transition-all"
+              >
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

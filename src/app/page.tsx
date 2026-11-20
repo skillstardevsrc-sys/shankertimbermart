@@ -3,59 +3,42 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { BrandIntroduction } from "@/components/home/BrandIntroduction";
 import { ProductCategoryCards } from "@/components/home/ProductCategoryCards";
 import { FeaturedTimberCollection } from "@/components/home/FeaturedTimberCollection";
-import { DoorsCollection } from "@/components/home/DoorsCollection";
-import { WindowsFenestaSection } from "@/components/home/WindowsFenestaSection";
-import { ModularInteriorsSection } from "@/components/home/ModularInteriorsSection";
-import { ServicesSection } from "@/components/home/ServicesSection";
 import { ProjectPortfolioSection } from "@/components/home/ProjectPortfolioSection";
-import { AssociatedBrandsSection } from "@/components/home/AssociatedBrandsSection";
 import { WhyChooseUsSection } from "@/components/home/WhyChooseUsSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export const revalidate = 0; // Dynamic server rendering for live CMS updates
 
 export default async function HomePage() {
-  const [projects, services] = await Promise.all([
-    db.projects.getAll(),
-    db.services.getAll(),
-  ]);
+  const projects = await db.projects.getAll();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
+      {/* Subtle organic ambient gradients for atmospheric luxury depth */}
+      <div className="absolute top-[12%] -left-40 w-[600px] h-[600px] bg-[#FAF1E8]/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[35%] -right-40 w-[700px] h-[700px] bg-[#CDAFB0]/30 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-[65%] -left-32 w-[650px] h-[650px] bg-[#FAF1E8]/35 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[85%] -right-32 w-[600px] h-[600px] bg-[#CDAFB0]/25 rounded-full blur-[140px] pointer-events-none" />
+
       {/* SECTION 01 — HERO */}
       <HeroSection />
 
-      {/* SECTION 02 — BRAND INTRODUCTION */}
+      {/* SECTION 02 — BRAND INTRODUCTION (ABOUT US) */}
       <BrandIntroduction />
 
-      {/* SECTION 03 — PRODUCT CATEGORIES */}
+      {/* SECTION 03 — PRODUCT CATEGORIES (OUR PRODUCTS) */}
       <ProductCategoryCards />
 
-      {/* SECTION 04 — FEATURED TIMBER COLLECTION */}
+      {/* SECTION 04 — FEATURED TIMBER COLLECTION (FEATURED MATERIALS) */}
       <FeaturedTimberCollection />
 
-      {/* SECTION 05 — DOORS COLLECTION */}
-      <DoorsCollection />
-
-      {/* SECTION 06 — WINDOWS AND FENESTA */}
-      <WindowsFenestaSection />
-
-      {/* SECTION 07 — MODULAR INTERIORS */}
-      <ModularInteriorsSection />
-
-      {/* SECTION 08 — SERVICES */}
-      <ServicesSection services={services} />
-
-      {/* SECTION 09 — PROJECT PORTFOLIO */}
+      {/* SECTION 05 — PROJECT PORTFOLIO (OUR PROJECTS) */}
       <ProjectPortfolioSection projects={projects} />
 
-      {/* SECTION 10 — ASSOCIATED BRANDS */}
-      <AssociatedBrandsSection />
-
-      {/* SECTION 11 — WHY CHOOSE US */}
+      {/* SECTION 06 — WHY CHOOSE US */}
       <WhyChooseUsSection />
 
-      {/* SECTION 12 — FINAL CTA */}
+      {/* SECTION 07 — FINAL CTA (LET'S BUILD SOMETHING BEAUTIFUL) */}
       <FinalCTASection />
     </div>
   );

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { Service } from "@/lib/types";
 
 interface ServiceCardProps {
@@ -9,38 +9,37 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <div className="group bg-white rounded-3xl p-3 border border-sand-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_22px_45px_rgb(43,29,21,0.09)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col">
-      {/* Curved Image Container */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-sand-100">
+    <div className="group glass-card rounded-[28px] p-3 border border-white/80 shadow-[0_8px_24px_rgba(63,46,47,0.06)] hover:shadow-[0_16px_40px_rgba(63,46,47,0.12)] hover:bg-white transition-all duration-300 hover:-translate-y-1 flex flex-col">
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[20px] bg-[#EAD7CF]/30">
         <Image
           src={service.imageUrl}
           alt={service.title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-walnut/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-walnut uppercase tracking-wider border border-sand-200/60 shadow-sm flex items-center gap-1">
-          <Sparkles className="w-2.5 h-2.5 text-timber" />
-          <span>In-House</span>
+        <div className="absolute top-3 right-3 glass-pill px-3 py-1 text-[10px] font-bold text-[#3F2E2F] uppercase tracking-wider shadow-sm">
+          In-House
         </div>
       </div>
 
-      {/* Card Content with Smooth Spacing */}
-      <div className="p-5 flex-1 flex flex-col justify-between space-y-5">
-        <div className="space-y-3">
-          <h3 className="font-serif text-2xl font-medium text-walnut group-hover:text-timber transition-colors">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-2.5">
+          <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#3F2E2F] group-hover:text-[#6E5053] transition-colors">
             {service.title}
           </h3>
-          <p className="text-sm text-charcoal/75 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#3F2E2F]/75 leading-relaxed">
             {service.shortDesc}
           </p>
 
           {service.benefits && service.benefits.length > 0 && (
-            <ul className="space-y-2 pt-2">
+            <ul className="space-y-1.5 pt-1">
               {service.benefits.slice(0, 3).map((benefit, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-charcoal/75 bg-ivory-50/70 px-3 py-1.5 rounded-xl border border-sand-200/50">
-                  <Check className="w-3.5 h-3.5 text-olive shrink-0 mt-0.5" />
+                <li
+                  key={idx}
+                  className="flex items-start gap-2 text-xs text-[#3F2E2F]/80 bg-white/60 px-3 py-1.5 rounded-xl border border-white/80"
+                >
+                  <Check className="w-3.5 h-3.5 text-[#6E5053] shrink-0 mt-0.5" />
                   <span>{benefit}</span>
                 </li>
               ))}
@@ -48,13 +47,19 @@ export function ServiceCard({ service }: ServiceCardProps) {
           )}
         </div>
 
-        <div className="pt-4 border-t border-sand-100 flex items-center justify-between">
+        <div className="pt-3 border-t border-[#CDAFB0]/20 flex items-center justify-between text-xs font-semibold text-[#6E5053]">
           <Link
-            href={`/quote?service=${encodeURIComponent(service.title)}`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sand-100/70 hover:bg-walnut hover:text-ivory text-xs font-semibold text-walnut transition-all duration-300"
+            href={`/services/${service.slug}`}
+            className="hover:underline flex items-center gap-1.5"
           >
-            <span>Consult on This Service</span>
-            <ArrowRight className="w-3.5 h-3.5 text-timber group-hover:text-sand-300 transition-colors" />
+            <span>Learn More</span>
+            <span className="text-xs">→</span>
+          </Link>
+          <Link
+            href="/contact"
+            className="glass-pill px-3 py-1 text-[11px] text-[#3F2E2F] hover:bg-white transition-all shadow-sm"
+          >
+            Request Service
           </Link>
         </div>
       </div>

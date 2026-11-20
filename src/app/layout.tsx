@@ -139,7 +139,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-ivory text-charcoal font-sans">
+      <body className="min-h-screen flex flex-col bg-[#EAD7CF] text-charcoal font-sans">
         <Suspense fallback={null}>
           <GlobalNavigationLoader />
         </Suspense>

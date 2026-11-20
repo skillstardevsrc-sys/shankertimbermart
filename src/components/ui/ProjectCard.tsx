@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, MapPin } from "lucide-react";
 import { Project } from "@/lib/types";
 
 interface ProjectCardProps {
@@ -11,45 +10,34 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block bg-white rounded-3xl p-3 border border-sand-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_22px_45px_rgb(43,29,21,0.09)] transition-all duration-500 hover:-translate-y-1.5"
+      className="group relative aspect-[16/11] rounded-[26px] overflow-hidden border border-white/80 shadow-[0_10px_30px_rgba(63,46,47,0.08)] bg-[#EAD7CF]/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(63,46,47,0.14)] block"
     >
-      {/* Inset Curved Image */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-sand-100">
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-walnut/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-3 left-3 bg-walnut/85 backdrop-blur-md text-ivory text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full border border-white/10 shadow-sm">
-          {project.category}
-        </div>
-      </div>
+      {/* Full-Bleed Project Image */}
+      <Image
+        src={project.coverImage}
+        alt={project.title}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+      />
 
-      {/* Card Details */}
-      <div className="p-5 space-y-3">
-        {project.location && (
-          <div className="flex items-center text-xs text-charcoal/60 gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-timber" />
-            <span>{project.location}</span>
-          </div>
-        )}
+      {/* Atmospheric Scrim */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-        <h3 className="font-serif text-2xl font-medium text-walnut group-hover:text-timber transition-colors line-clamp-1">
-          {project.title}
-        </h3>
-
-        <p className="text-xs text-charcoal/70 line-clamp-2 leading-relaxed">
-          {project.overview}
-        </p>
-
-        <div className="pt-3 flex items-center justify-between text-xs font-semibold text-timber group-hover:text-walnut transition-colors border-t border-sand-100">
-          <span className="inline-flex items-center gap-1.5">View Architecture & Materials</span>
-          <span className="w-7 h-7 rounded-full bg-sand-100 group-hover:bg-walnut group-hover:text-ivory flex items-center justify-center transition-all duration-300">
-            <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+      {/* Bottom Floating Information Overlay */}
+      <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between z-10">
+        <div>
+          <h3 className="font-serif text-lg sm:text-xl font-medium text-[#FAF1E8] leading-tight">
+            {project.title}
+          </h3>
+          <span className="text-xs text-[#FAF1E8]/75 font-normal block mt-0.5">
+            {project.category}
           </span>
+        </div>
+
+        {/* Circular Glass Arrow Action */}
+        <div className="w-8 h-8 rounded-full bg-white/25 group-hover:bg-white text-[#FAF1E8] group-hover:text-[#3F2E2F] backdrop-blur-md border border-white/40 flex items-center justify-center transition-all duration-300 text-xs shrink-0 ml-3">
+          →
         </div>
       </div>
     </Link>

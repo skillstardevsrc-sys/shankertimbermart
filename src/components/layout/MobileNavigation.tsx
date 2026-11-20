@@ -30,12 +30,12 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
       />
 
       {/* Drawer */}
-      <div className="fixed inset-y-0 right-0 max-w-sm w-full bg-ivory shadow-2xl flex flex-col justify-between overflow-y-auto border-l border-sand-300">
+      <div className="fixed inset-y-0 right-0 max-w-sm w-full bg-[#FAF1E8] shadow-2xl flex flex-col justify-between overflow-y-auto border-l border-[#CDAFB0]/40">
         {/* Drawer Header with Official Logo */}
         <div>
-          <div className="p-5 border-b border-sand-200 flex items-center justify-between">
+          <div className="p-5 border-b border-[#CDAFB0]/30 flex items-center justify-between">
             <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
-              <div className="relative w-11 h-11 shrink-0">
+              <div className="relative w-10 h-10 shrink-0">
                 <Image
                   src="/logo.png"
                   alt="Shankar Timber Mart Logo"
@@ -44,17 +44,17 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
                 />
               </div>
               <div>
-                <div className="font-serif text-lg font-bold tracking-tight text-walnut leading-none">
+                <div className="font-serif text-lg font-bold tracking-tight text-[#3F2E2F] leading-none">
                   SHANKAR
                 </div>
-                <div className="text-[9px] tracking-[0.22em] uppercase text-timber font-medium mt-0.5">
+                <div className="text-[9px] tracking-[0.22em] uppercase text-[#6E5053] font-medium mt-0.5">
                   Timber Mart
                 </div>
               </div>
             </Link>
             <button
               onClick={onClose}
-              className="p-2 text-walnut hover:text-timber transition-colors rounded-button focus:outline-none focus:ring-2 focus:ring-timber"
+              className="p-2 text-[#3F2E2F] hover:text-[#6E5053] transition-colors rounded-button focus:outline-none"
               aria-label="Close navigation"
             >
               <X className="w-5 h-5" />
@@ -64,30 +64,22 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
           {/* Navigation Links */}
           <nav className="p-6 space-y-4">
             <Link
-              href="/configurator"
-              onClick={onClose}
-              className="block p-3 rounded-xl bg-timber text-ivory text-sm font-semibold uppercase tracking-wider text-center shadow-sm"
-            >
-              ✦ Customise Your Product
-            </Link>
-
-            <Link
               href="/"
               onClick={onClose}
-              className="block text-lg font-serif text-walnut hover:text-timber font-medium transition-colors"
+              className="block text-lg font-serif text-[#3F2E2F] hover:text-[#6E5053] font-medium transition-colors"
             >
               Home
             </Link>
 
             {/* Expandable Products Section */}
-            <div className="border-t border-b border-sand-200 py-3 space-y-2">
-              <div className="flex items-center justify-between text-lg font-serif text-walnut font-medium">
-                <Link href="/products" onClick={onClose} className="hover:text-timber">
+            <div className="border-t border-b border-[#CDAFB0]/30 py-3 space-y-2">
+              <div className="flex items-center justify-between text-lg font-serif text-[#3F2E2F] font-medium">
+                <Link href="/products" onClick={onClose} className="hover:text-[#6E5053]">
                   Products Catalogue
                 </Link>
                 <button
                   onClick={() => toggleCategory("all")}
-                  className="p-1 text-timber"
+                  className="p-1 text-[#6E5053]"
                   aria-label="Toggle all categories"
                 >
                   {expandedCategory ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -98,24 +90,24 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
                 <div key={cat.title} className="pl-3 py-1">
                   <div
                     onClick={() => toggleCategory(cat.title)}
-                    className="flex items-center justify-between py-1.5 text-sm font-medium text-walnut cursor-pointer hover:text-timber"
+                    className="flex items-center justify-between py-1.5 text-sm font-medium text-[#3F2E2F] cursor-pointer hover:text-[#6E5053]"
                   >
                     <span>{cat.title}</span>
                     {expandedCategory === cat.title ? (
-                      <ChevronUp className="w-4 h-4 text-timber" />
+                      <ChevronUp className="w-4 h-4 text-[#6E5053]" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-charcoal/50" />
+                      <ChevronDown className="w-4 h-4 text-[#3F2E2F]/40" />
                     )}
                   </div>
 
                   {expandedCategory === cat.title && (
-                    <ul className="pl-3 py-2 space-y-2 border-l border-sand-300">
+                    <ul className="pl-3 py-2 space-y-2 border-l border-[#CDAFB0]/40">
                       {cat.items.map((sub) => (
                         <li key={sub.name}>
                           <Link
                             href={sub.href}
                             onClick={onClose}
-                            className="block text-xs text-charcoal/80 hover:text-timber py-0.5"
+                            className="block text-xs text-[#3F2E2F]/80 hover:text-[#6E5053] py-0.5"
                           >
                             {sub.name}
                           </Link>

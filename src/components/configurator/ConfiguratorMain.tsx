@@ -414,7 +414,7 @@ export function ConfiguratorMain({
   };
 
   return (
-    <div className="bg-ivory min-h-screen flex flex-col">
+    <div className="bg-transparent min-h-screen flex flex-col">
       {/* Compatibility Alert Banner if triggered */}
       {compatibilityAlert && (
         <div className="bg-sand-300 text-walnut px-4 py-2.5 text-xs flex items-center justify-between border-b border-sand-400">

@@ -1,24 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-walnut: #2B1D15;
-  --color-timber: #C88A3E;
-  --color-sand: #DDBA88;
-  --color-ivory: #F9F6F0;
-  --color-olive: #5C6650;
-  --color-charcoal: #241D1A;
+  /* OFFICIAL DESERT BLUSH PALETTE */
+  --color-primary-dark: #3F2E2F;
+  --color-secondary-walnut: #6E5053;
+  --color-muted-rose: #9F7E82;
+  --color-dusty-blush: #CDAFB0;
+  --color-pale-blush: #EAD7CF;
+  --color-warm-ivory: #FAF1E8;
+
+  --color-walnut: #3F2E2F;
+  --color-timber: #9F7E82;
+  --color-sand: #CDAFB0;
+  --color-ivory: #FAF1E8;
+  --color-charcoal: #3F2E2F;
   --color-white: #FFFFFF;
 }
 
 @layer base {
   body {
-    background-color: var(--color-ivory);
-    color: var(--color-charcoal);
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background-color: #EAD7CF;
+    color: var(--color-primary-dark);
+    font-family: 'DM Sans', 'Manrope', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -26,10 +33,56 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    color: var(--color-walnut);
+    color: var(--color-primary-dark);
     letter-spacing: -0.015em;
     font-weight: 500;
   }
+}
+
+/* Glassmorphism Design System */
+.glass-panel {
+  background: rgba(250, 241, 232, 0.65);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 40px rgba(63, 46, 47, 0.06);
+  border-radius: 24px;
+}
+
+.glass-panel-dark {
+  background: rgba(63, 46, 47, 0.90);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 44px rgba(30, 20, 21, 0.25);
+  border-radius: 28px;
+}
+
+.glass-pill {
+  background: rgba(250, 241, 232, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 30px rgba(63, 46, 47, 0.05);
+  border-radius: 22px;
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(205, 175, 176, 0.5);
+  box-shadow: 0 16px 36px rgba(63, 46, 47, 0.10);
 }
 
 /* Custom Brand Logo Animations */

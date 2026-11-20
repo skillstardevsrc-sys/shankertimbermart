@@ -25,7 +25,6 @@ export const NAVIGATION_LINKS = [
     href: "/products",
     hasMegaMenu: true,
   },
-  { label: "Customise", href: "/configurator" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
   { label: "Our Brands", href: "/brands" },

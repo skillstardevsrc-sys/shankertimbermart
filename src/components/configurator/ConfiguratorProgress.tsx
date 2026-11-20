@@ -17,7 +17,7 @@ export function ConfiguratorProgress({
   canNavigateToStep,
 }: ConfiguratorProgressProps) {
   return (
-    <div className="w-full bg-white border-b border-sand-300/80 py-4 px-4 sm:px-6 shadow-sm">
+    <div className="w-full bg-[#FAF1E8]/90 backdrop-blur-xl border-b border-[#CDAFB0]/30 py-3.5 px-4 sm:px-6 shadow-[0_4px_20px_rgba(63,46,47,0.04)] sticky top-[65px] z-30">
       <div className="max-w-site mx-auto">
         {/* Progress List */}
         <div className="flex items-center justify-between overflow-x-auto no-scrollbar gap-2 sm:gap-4">
@@ -40,10 +40,10 @@ export function ConfiguratorProgress({
                 <div
                   className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all ${
                     isCurrent
-                      ? "bg-walnut text-ivory ring-4 ring-sand-200 shadow-sm"
+                      ? "bg-[#3F2E2F] text-[#FAF1E8] ring-4 ring-[#CDAFB0]/40 shadow-sm"
                       : isCompleted
-                      ? "bg-timber text-ivory shadow-sm group-hover:scale-105"
-                      : "bg-sand-100 text-charcoal/50 border border-sand-300"
+                      ? "bg-[#6E5053] text-[#FAF1E8] shadow-sm group-hover:scale-105"
+                      : "bg-white/60 text-[#3F2E2F]/50 border border-[#CDAFB0]/40"
                   }`}
                 >
                   {isCompleted ? (
@@ -58,10 +58,10 @@ export function ConfiguratorProgress({
                   <span
                     className={`text-[10px] uppercase font-bold tracking-wider ${
                       isCurrent
-                        ? "text-timber"
+                        ? "text-[#3F2E2F]"
                         : isCompleted
-                        ? "text-walnut"
-                        : "text-charcoal/40"
+                        ? "text-[#6E5053]"
+                        : "text-[#3F2E2F]/40"
                     }`}
                   >
                     Step {step.number}
@@ -69,10 +69,10 @@ export function ConfiguratorProgress({
                   <span
                     className={`text-xs font-semibold leading-tight line-clamp-1 ${
                       isCurrent
-                        ? "text-walnut"
+                        ? "text-[#3F2E2F]"
                         : isCompleted
-                        ? "text-walnut group-hover:text-timber transition-colors"
-                        : "text-charcoal/50"
+                        ? "text-[#3F2E2F] group-hover:text-[#6E5053] transition-colors"
+                        : "text-[#3F2E2F]/50"
                     }`}
                   >
                     {step.label}
@@ -83,7 +83,7 @@ export function ConfiguratorProgress({
                 {idx < steps.length - 1 && (
                   <div
                     className={`hidden sm:block w-4 lg:w-8 h-[2px] rounded-full mx-1 ${
-                      idx < currentStepIndex ? "bg-timber" : "bg-sand-200"
+                      idx < currentStepIndex ? "bg-[#6E5053]" : "bg-[#CDAFB0]/40"
                     }`}
                   />
                 )}

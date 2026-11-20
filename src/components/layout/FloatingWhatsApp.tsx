@@ -10,9 +10,6 @@ export function FloatingWhatsApp() {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const isConfigurator =
-    pathname.startsWith("/configurator") || pathname.startsWith("/customise");
-
   // Check if any studio modal or dialogue is active
   useEffect(() => {
     const checkModalState = () => {
@@ -46,11 +43,7 @@ export function FloatingWhatsApp() {
   return (
     <div
       id="floating-whatsapp"
-      className={`floating-whatsapp-container fixed z-30 flex items-center group transition-all duration-300 ${
-        isConfigurator
-          ? "bottom-24 sm:bottom-28 right-4 sm:right-6"
-          : "bottom-6 right-6"
-      }`}
+      className="floating-whatsapp-container fixed z-30 flex items-center group transition-all duration-300 bottom-6 right-6"
     >
       {/* Tooltip prompt */}
       <span className="hidden sm:inline-block mr-3 bg-walnut text-ivory text-xs py-1.5 px-3 rounded-card shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-sand-400/20">

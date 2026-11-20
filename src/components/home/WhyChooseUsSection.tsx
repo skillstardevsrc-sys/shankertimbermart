@@ -1,74 +1,71 @@
-import { Layers, CheckCircle2, Users, Compass, ShieldCheck, MapPin } from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { WoodPatternBackground } from "@/components/ui/WoodPatternBackground";
+"use client";
 
-const PILLARS = [
-  {
-    icon: Layers,
-    title: "Unrivalled Product Range",
-    desc: "From rough-sawn hardwood logs and kiln-dried timber to certified BWP plywood, designer veneer doors, uPVC windows, and turnkey modular kitchens—all under one roof.",
-  },
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ShieldCheck, Layers, Award, Compass, Handshake } from "lucide-react";
+
+const WHY_US_ITEMS = [
   {
     icon: ShieldCheck,
-    title: "Authentic Material Standards",
-    desc: "We verify every log and sheet. No unbranded substitutes, no compromised cores. When you order Burma Teak or IS:710 marine ply, you receive genuine certified material.",
+    title: "Premium Quality Materials",
   },
   {
-    icon: Users,
-    title: "Dedicated Segment Assistance",
-    desc: "Customized workflows tailored for homeowners needing design advice, architects requiring finish samples, and contractors managing volume delivery schedules.",
+    icon: Layers,
+    title: "Wide & Diverse Product Range",
+  },
+  {
+    icon: Award,
+    title: "Trusted Expertise",
   },
   {
     icon: Compass,
-    title: "Turnkey Interior Integration",
-    desc: "We bridge material supply with factory-grade modular manufacturing. Our in-house machinery ensures laser-straight edge banding and flawless joinery.",
+    title: "Interior Solutions",
   },
   {
-    icon: CheckCircle2,
-    title: "Objective Technical Guidance",
-    desc: "Honest advice on wood species, dimensional stability, moisture tolerances, and exterior weathering before you place your order.",
-  },
-  {
-    icon: MapPin,
-    title: "Mettupalayam Road Showroom",
-    desc: "Experience real timber grains, full-scale door displays, and window operation in person at 178-C, Mettupalayam Road, Coimbatore.",
+    icon: Handshake,
+    title: "End-to-End Support",
   },
 ];
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-ivory-100/70 border-t border-b border-sand-200 relative overflow-hidden">
-      {/* Unified Aesthetic Wood Growth Rings Background */}
-      <WoodPatternBackground opacity="opacity-[0.07]" />
+    <section className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
+      <div className="relative z-10 max-w-site mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <ScrollReveal 
+            variant="left"
+            duration={0.7}
+            className="lg:col-span-4"
+          >
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.24em] text-[#6E5053] uppercase block mb-1.5">
+              WHY CHOOSE US
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[38px] font-medium tracking-tight text-[#3F2E2F] leading-tight">
+              Why Choose Shankar Timber Mart?
+            </h2>
+          </ScrollReveal>
 
-      <div className="relative z-10 max-w-site mx-auto px-6">
-        <SectionHeading
-          tagline="Our Quality Standard"
-          title="Why Choose Shankar Timber Mart"
-          subtitle="A destination built on material authenticity, technical guidance, and seamless customer service."
-          centered
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.title}
-                className="group p-8 bg-white rounded-3xl border border-sand-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_22px_45px_rgb(43,29,21,0.08)] hover:-translate-y-1.5 transition-all duration-500 space-y-4"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-sand-100/70 border border-sand-200/60 text-timber flex items-center justify-center group-hover:bg-walnut group-hover:text-sand-300 group-hover:scale-105 transition-all duration-300 shadow-sm">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-2xl font-medium text-walnut group-hover:text-timber transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
-            );
-          })}
+          {/* 5 Glass Cards in a Row */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+            {WHY_US_ITEMS.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <ScrollReveal
+                  key={item.title}
+                  variant="scale"
+                  delay={idx * 0.08}
+                  duration={0.55}
+                  className="glass-card p-3.5 sm:p-4 rounded-[18px] sm:rounded-[20px] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:bg-white"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#EAD7CF]/70 text-[#3F2E2F] flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-[11px] sm:text-xs font-semibold text-[#3F2E2F] leading-snug">
+                    {item.title}
+                  </h4>
+                </ScrollReveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
